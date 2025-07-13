@@ -15,6 +15,7 @@ voices = []
 voice_list = ["Please select a language"]
 voice_list_var = tkinter.StringVar(value=voice_list)
 
+
 async def initialization():
     global language_list, voices
     voices = await edge_tts.list_voices()
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     langaugeWidget = ttk.Combobox(rootFrame, values=language_list, textvariable=language_selected)
     langaugeWidget.grid(column=0, row=1, sticky=tkinter.N+tkinter.E+tkinter.W)
     voiceFrame = ttk.Frame(rootFrame)
-    voiceFrame.grid(column=0, row=2, pady= 3, sticky=tkinter.N+tkinter.S+tkinter.E+tkinter.W)
+    voiceFrame.grid(column=0, row=2, pady=3, sticky=tkinter.N+tkinter.S+tkinter.E+tkinter.W)
     voiceScroll = tkinter.Scrollbar(voiceFrame, orient="vertical")
     voiceScroll.grid(column=1, row=0, sticky=tkinter.N+tkinter.S+tkinter.W)
     voiceList = tkinter.Listbox(voiceFrame, selectmode="single", listvariable=voice_list_var, yscrollcommand=voiceScroll.set)
@@ -47,6 +48,7 @@ if __name__ == '__main__':
     voiceList.grid(column=0, row=0, sticky=tkinter.N+tkinter.S+tkinter.E+tkinter.W)
     testText = ttk.Entry(rootFrame, textvariable=test_text)
     testText.grid(column=0, row=3, sticky=tkinter.S+tkinter.E+tkinter.W)
+
     def speakVoice():
         voice = [v["ShortName"] for v in voices if v["FriendlyName"] == voiceList.selection_get()]
         if voice and len(voice) > 0:
@@ -60,6 +62,7 @@ if __name__ == '__main__':
                         audio_file.write(chunk["data"])
             p = vlc.MediaPlayer(file.name)
             p.play()
+
     playText = ttk.Button(rootFrame, text="Play", command=speakVoice)
     playText.grid(column=0, row=4, sticky=tkinter.S+tkinter.E+tkinter.W)
     ttk.Label(textvariable=voice_result).grid(column=0, row=5, sticky=tkinter.S+tkinter.E+tkinter.W)

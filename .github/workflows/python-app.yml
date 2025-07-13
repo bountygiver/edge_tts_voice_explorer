@@ -33,7 +33,7 @@ jobs:
     - name: Compile python application
       run: |
         pip install -U pyinstaller
-        pyinstaller --noconsole voice_explorer.py
+        pyinstaller --onefile --windowed voice_explorer.py
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v2
