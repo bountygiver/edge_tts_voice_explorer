@@ -1,0 +1,1 @@
+A voice explorer for [edge_tts](https://github.com/rany2/edge-tts) voices. With ability to extract the voice code to be used for [k-tts-obsplugin](https://github.com/bountygiver/k-tts-obsplugin)
