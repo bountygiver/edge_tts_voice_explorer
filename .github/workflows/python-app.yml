@@ -40,4 +40,4 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        files: ./dist/voice_explorer/voice_explorer.exe
+        files: ./dist/voice_explorer.exe
