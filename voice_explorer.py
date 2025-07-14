@@ -79,6 +79,8 @@ if __name__ == '__main__':
             locale = voice[0]["Locale"].split('-')[0].lower()[:2]
             voice_matches = [f for f in voices if f["Locale"].split('-')[0].lower().startswith(locale)]
             voice_result.set(f"Use !v{locale}{voice_matches.index(voice[0]) + 1}")
+        else:
+            voice_result.set("You must select a valid voice")
 
     langaugeWidget.bind("<<ComboboxSelected>>", comboSelected)
     voiceList.bind("<<ListboxSelect>>", voiceSelected)
